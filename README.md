@@ -1,3 +1,3 @@
 Plymouth-lite
 =============
-Plymouth-lite patched and ready form Raspberry Pi
+Plymouth-lite patched and ready for Raspberry Pi
