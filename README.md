@@ -39,14 +39,12 @@ Now modify /etc/mkinitcpio.conf to this
 
 Now run
 
-Code: Select all
     mkinitcpio -g /boot/initrd -v
 
 
 
 Now /boot/config.txt
 
-Code: Select all
     #initramfs
     initramfs initrd 0x00f00000
 
@@ -54,10 +52,9 @@ Code: Select all
 
 And finally /boot/cmdline.txt
 
-Code: Select all
     initrd=0x00f00000 quiet logo.nologo vt.cur_default=1
 
+And runs at start
 
-Code: Select all
     cd /usr/lib/systemd/system/sysinit.target.wants/
     ln -s ../plymouth-lite-start.service
