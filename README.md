@@ -7,27 +7,22 @@ Install and configure
 
 You need to change plymouth-lite-start.service to this
 
-Code: Select all
-    ExecStart=/usr/bin/echo 0 > /sys/class/graphics/fbcon/cursor_blink ; /usr/bin/echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink ; /usr/bin/chvt 7 ; /usr/bin/ply-image
+        ExecStart=/usr/bin/echo 0 > /sys/class/graphics/fbcon/cursor_blink ; /usr/bin/echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink ; /usr/bin/chvt 7 ; /usr/bin/ply-image
 
 
 
 Now modify /usr/lib/initcpio/init to this on line 35 (aprox) only add ply-image line
 
-Code: Select all
-    if [ -n "$earlymodules$MODULES" ]; then
-        modprobe -qab ${earlymodules//,/ } $MODULES
-    fi
-
-    ply-image /usr/share/plymouth/3.png &> /dev/null
-
-    run_hookfunctions 'run_hook' 'hook' $HOOKS
+        if [ -n "$earlymodules$MODULES" ]; then
+            modprobe -qab ${earlymodules//,/ } $MODULES
+        fi
+        ply-image /usr/share/plymouth/3.png &> /dev/null
+        run_hookfunctions 'run_hook' 'hook' $HOOKS
 
 
 
 Now modify /etc/mkinitcpio.conf to this
 
-Code: Select all
     # BINARIES
     # This setting includes any additional binaries a given user may
     # wish into the CPIO image.  This is run last, so it may be used to
