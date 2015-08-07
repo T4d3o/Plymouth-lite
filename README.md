@@ -16,7 +16,9 @@ Now modify /usr/lib/initcpio/init to this on line 35 (aprox) only add ply-image 
         if [ -n "$earlymodules$MODULES" ]; then
             modprobe -qab ${earlymodules//,/ } $MODULES
         fi
-        ply-image /usr/share/plymouth/3.png &> /dev/null
+        
+        ply-image /usr/share/plymouth/YOUR_IMAGE.png &> /dev/null
+        
         run_hookfunctions 'run_hook' 'hook' $HOOKS
 
 
@@ -33,7 +35,7 @@ Now modify /etc/mkinitcpio.conf to this
     # FILES
     # This setting is similar to BINARIES above, however, files are added
     # as-is and are not parsed in any way.  This is useful for config files.
-    FILES="/usr/share/plymouth/3.png"
+    FILES="/usr/share/plymouth/YOUR_IMAGE.png"
 
 
 
