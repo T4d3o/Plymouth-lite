@@ -9,5 +9,5 @@ install: ply-image
 	mkdir -p $(DESTDIR)/usr/bin	
 	mkdir -p $(DESTDIR)/usr/share/plymouth
 	cp ply-image $(DESTDIR)/usr/bin
-	
+	cp splash.png $(DESTDIR)/usr/share/plymouth
 	
