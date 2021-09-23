@@ -7,4 +7,8 @@ Before=sysinit.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/ply-image /usr/share/plymouth/splash.png
+#This commented portion is obviously taken out 
+#ExecStart=/usr/bin/ply-image /usr/share/plymouth/splash.png
+
+#This part below was added from README.md
+ExecStart=/usr/bin/echo 0 > /sys/class/graphics/fbcon/cursor_blink ; /usr/bin/echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink ; /usr/bin/chvt 7 ; /usr/bin/ply-image
